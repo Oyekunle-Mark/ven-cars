@@ -69,7 +69,7 @@ describe('filterRecord', () => {
       colors: 'Puce',
     };
 
-    it('returns the exact match from the record', () => {
+    it('returns the exact match from the record based on year, gender, countries and colors.', () => {
       const result = filterRecord(filter, carOwners);
 
       expect(result.length).toEqual(1);
