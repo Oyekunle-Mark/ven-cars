@@ -1,3 +1,5 @@
+const filterRecord = require('./filterRecord');
+
 describe('filterRecord', () => {
   const carOwners = [
     {
@@ -41,7 +43,22 @@ describe('filterRecord', () => {
     },
   ];
 
-  describe('Empty field means all records', () => {});
+  describe('Empty field means all records', () => {
+    const filter = {
+      start_year: 1990,
+      end_year: 2005,
+      gender: '',
+      countries: '',
+      colors: '',
+    };
+
+    it('returns all records in the year range', () => {
+      const result = filterRecord(filter, carOwners);
+
+      expect(result.length).toEqual(3);
+      expect(result).toEqual(carOwners);
+    });
+  });
 
   describe('Returns the expected owner objects', () => {});
 
