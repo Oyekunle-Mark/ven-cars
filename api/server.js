@@ -3,8 +3,10 @@ const cors = require('cors');
 const helmet = require('helmet');
 const compression = require('compression');
 const logger = require('morgan');
+const NodeCache = require('node-cache');
 
 const server = express();
+const cache = new NodeCache();
 
 server.use(express.json());
 server.use(cors());
@@ -26,4 +28,7 @@ server.use('*', (_, res) =>
   }),
 );
 
-module.exports = server;
+module.exports = {
+  server,
+  cache,
+};
