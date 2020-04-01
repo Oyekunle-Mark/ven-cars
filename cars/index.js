@@ -22,6 +22,14 @@ router.get('/filters', async (req, res) => {
 router.get('/filter/:id', async (req, res) => {
   try {
     const { id } = req.params;
+    const filteredResult = global.cache.get(id);
+
+    if (!filteredResult) {
+      return res.status(404).json({
+        statusCode: 404,
+        error: `There is no filter of id ${id}.`,
+      });
+    }
 
     return res.status(200).json({
       statusCode: 200,
