@@ -13,15 +13,12 @@ const getFilters = async () => {
 
 const filterRecord = (filter, record) => {
   const { start_year, end_year, gender, countries, colors } = filter;
-  const result = {};
+  const result = [];
 
   for (let i = 0; i < record.length; i++) {
-    const {
-      country,
-      car_model_year,
-      car_color,
-      gender: ownerGender,
-    } = record[i];
+    const { country, car_model_year, car_color, gender: ownerGender } = record[
+      i
+    ];
 
     if (
       !(
@@ -59,5 +56,9 @@ const filterRecord = (filter, record) => {
         continue;
       }
     }
+
+    result.push(record[i]);
   }
+
+  return result;
 };
