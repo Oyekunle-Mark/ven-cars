@@ -93,4 +93,21 @@ describe('filterRecord', () => {
       expect(result).toEqual([]);
     });
   });
+
+  describe('Filter is not case sensitive', () => {
+    const filter = {
+      start_year: 1990,
+      end_year: 2000,
+      gender: 'MALE',
+      countries: 'THaiLand',
+      colors: 'maROOn,GOLD,ORANGE,lemon',
+    };
+
+    it('Return type is an empty array', () => {
+      const result = filterRecord(filter, carOwners);
+
+      expect(result.length).toEqual(1);
+      expect(result).toEqual([carOwners[0]]);
+    });
+  });
 });
