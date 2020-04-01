@@ -19,6 +19,6 @@ exports.applyFilters = async cache => {
   for (const filter of filters) {
     const result = filterRecord(filter, record);
 
-    cache[filter.id] = result;
+    cache.set(filter.id, result);
   }
 };
