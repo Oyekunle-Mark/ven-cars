@@ -14,6 +14,7 @@ const getFilters = async () => {
 const filterRecord = (filter, record) => {
   const { start_year, end_year, gender, countries, colors } = filter;
   const result = [];
+  // console.log(filter)
 
   for (let i = 0; i < record.length; i++) {
     const { country, car_model_year, car_color, gender: ownerGender } = record[
@@ -22,13 +23,13 @@ const filterRecord = (filter, record) => {
 
     if (
       !(
-        start_year >= Number(car_model_year) &&
-        end_year <= Number(car_model_year)
+        start_year <= Number(car_model_year) &&
+        end_year >= Number(car_model_year)
       )
     ) {
       continue;
     }
-
+    // console.log(record[i])
     if (gender) {
       if (gender.toLowerCase() !== ownerGender.toLowerCase()) {
         continue;
@@ -56,9 +57,29 @@ const filterRecord = (filter, record) => {
         continue;
       }
     }
-
+    
     result.push(record[i]);
   }
 
   return result;
 };
+
+const applyFilters = async cache => {
+  const filters = await getFilters();
+  const record = await getCarOwnersRecord();
+
+  // eslint-disable-next-line no-restricted-syntax
+  for (const filter of filters) {
+    const result = filterRecord(filter, record);
+
+    cache[filter.id] = result;
+  }
+};
+
+const cache = {};
+
+applyFilters(cache);
+
+setTimeout(() => {
+  console.log(cache);
+}, 5000);

@@ -28,7 +28,7 @@ async function readAndWriteLines() {
         first_name: lineArr[1],
         last_name: lineArr[2],
         email: lineArr[3],
-        county: lineArr[4],
+        country: lineArr[4],
         car_model: lineArr[5],
         car_model_year: lineArr[6],
         car_color: lineArr[7],
