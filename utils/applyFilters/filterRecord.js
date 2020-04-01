@@ -2,7 +2,6 @@
 module.exports = (filter, record) => {
   const { start_year, end_year, gender, countries, colors } = filter;
   const result = [];
-  // console.log(filter)
 
   for (let i = 0; i < record.length; i++) {
     const { country, car_model_year, car_color, gender: ownerGender } = record[
@@ -17,7 +16,7 @@ module.exports = (filter, record) => {
     ) {
       continue;
     }
-    // console.log(record[i])
+
     if (gender) {
       if (gender.toLowerCase() !== ownerGender.toLowerCase()) {
         continue;
