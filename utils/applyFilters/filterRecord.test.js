@@ -77,5 +77,20 @@ describe('filterRecord', () => {
     });
   });
 
-  describe('Returns empty array if no match is found', () => {});
+  describe('Returns empty array if no match is found', () => {
+    const filter = {
+      start_year: 3000,
+      end_year: 4005,
+      gender: 'male',
+      countries: '',
+      colors: '',
+    };
+
+    it('Return type is an empty array', () => {
+      const result = filterRecord(filter, carOwners);
+
+      expect(result.length).toEqual(0);
+      expect(result).toEqual([]);
+    });
+  });
 });
