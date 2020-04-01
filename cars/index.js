@@ -19,4 +19,20 @@ router.get('/filters', async (req, res) => {
   }
 });
 
+router.get('/filter/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    return res.status(200).json({
+      statusCode: 200,
+      data: global.cache.get(id),
+    });
+  } catch (err) {
+    return res.status(500).json({
+      statusCode: 500,
+      error: err.toString(),
+    });
+  }
+});
+
 module.exports = router;
