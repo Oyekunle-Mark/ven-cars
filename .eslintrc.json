@@ -13,6 +13,7 @@
     "ecmaVersion": 2018
   },
   "rules": {
-    "arrow-parens": 0
+    "arrow-parens": 0,
+    "implicit-arrow-linebreak": 0
   }
 }
