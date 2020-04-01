@@ -1,5 +1,5 @@
 /* eslint-disable camelcase */
-const db = require('../database/dbConfig');
+const db = require('../../database/dbConfig');
 
 const getCarOwnersRecord = async () => {
   const records = await db('car_owners');
