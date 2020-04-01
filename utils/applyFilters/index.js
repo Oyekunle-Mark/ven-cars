@@ -1,4 +1,5 @@
 const db = require('../../database/dbConfig');
+const filterRecord = require('./filterRecord');
 
 const getCarOwnersRecord = async () => {
   const records = await db('car_owners');
@@ -10,7 +11,7 @@ const getFilters = async () => {
   return filters;
 };
 
-const applyFilters = async cache => {
+exports.applyFilters = async cache => {
   const filters = await getFilters();
   const record = await getCarOwnersRecord();
 
