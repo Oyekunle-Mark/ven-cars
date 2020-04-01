@@ -5,6 +5,8 @@ const compression = require('compression');
 const logger = require('morgan');
 const NodeCache = require('node-cache');
 
+const carRouter = require('../cars');
+
 const server = express();
 const cache = new NodeCache();
 
@@ -20,6 +22,8 @@ server.get('/', (req, res) =>
     message: 'The Car Owner API is alive and kicking!',
   }),
 );
+
+server.use('/api/v1', carRouter);
 
 server.use('*', (_, res) =>
   res.status(404).json({
