@@ -18,7 +18,7 @@ server.use(logger('dev'));
 
 server.get('/', (req, res) =>
   res.status(200).json({
-    status: 200,
+    statusCode: 200,
     message: 'The Car Owner API is alive and kicking!',
   }),
 );
@@ -27,7 +27,7 @@ server.use('/api/v1', carRouter);
 
 server.use('*', (_, res) =>
   res.status(404).json({
-    status: 404,
+    statusCode: 404,
     message: 'No endpoint matches that URL.',
   }),
 );
