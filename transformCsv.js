@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 const fs = require('fs');
 const readline = require('readline');
 
@@ -13,6 +14,7 @@ async function readAndWriteLines() {
   const carOwnersRecord = [];
   let position = 0;
 
+  // eslint-disable-next-line no-restricted-syntax
   for await (const line of rl) {
     // writes 9000 rows only!
     if (position === 9000) {
@@ -21,9 +23,6 @@ async function readAndWriteLines() {
 
     if (position !== 0) {
       const lineArr = line.split(',');
-
-      // the csv has the following fields
-      // id,first_name,last_name,email,country,car_model,car_model_year,car_color,gender,job_title,bio
 
       carOwnersRecord.push({
         first_name: lineArr[1],
@@ -49,7 +48,8 @@ async function readAndWriteLines() {
     './database/seedStore/carOwners.js',
     JSON.stringify(carOwnersRecord, null, 2),
     'utf-8',
-    function(err) {
+    // eslint-disable-next-line consistent-return
+    err => {
       if (err) {
         return console.log(err);
       }
