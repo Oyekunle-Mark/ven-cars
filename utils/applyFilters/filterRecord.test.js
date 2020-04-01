@@ -48,27 +48,15 @@ describe('filterRecord', () => {
       start_year: 1990,
       end_year: 2005,
       gender: '',
-      countries: 'france,bolivia',
-      colors: 'Puce',
+      countries: '',
+      colors: '',
     };
 
     it('returns all records in the year range', () => {
       const result = filterRecord(filter, carOwners);
 
-      expect(result.length).toEqual(1);
-      expect(result).toEqual({
-        first_name: 'Sissy',
-        last_name: 'Willbourne',
-        email: 'swillbourne2@xinhuanet.com',
-        country: 'Bolivia',
-        car_model: 'Lexus',
-        car_model_year: '2004',
-        car_color: 'Puce',
-        gender: 'Female',
-        job_title: 'Staff Accountant I',
-        bio:
-          'Maecenas rhoncus aliquam lacus. Morbi quis tortor id nulla ultrices aliquet. Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo. Pellentesque viverra pede ac diam. Cras pellentesque volutpat dui.',
-      });
+      expect(result.length).toEqual(3);
+      expect(result).toEqual(carOwners);
     });
   });
 
@@ -77,9 +65,16 @@ describe('filterRecord', () => {
       start_year: 2000,
       end_year: 2005,
       gender: 'female',
-      countries: '',
-      colors: '',
+      countries: 'france,bolivia',
+      colors: 'Puce',
     };
+
+    it('returns the exact match from the record', () => {
+      const result = filterRecord(filter, carOwners);
+
+      expect(result.length).toEqual(1);
+      expect(result).toEqual([carOwners[2]]);
+    });
   });
 
   describe('Returns empty array if no match is found', () => {});
