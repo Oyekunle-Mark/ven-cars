@@ -57,7 +57,7 @@ const filterRecord = (filter, record) => {
         continue;
       }
     }
-    
+
     result.push(record[i]);
   }
 
@@ -75,11 +75,3 @@ const applyFilters = async cache => {
     cache[filter.id] = result;
   }
 };
-
-const cache = {};
-
-applyFilters(cache);
-
-setTimeout(() => {
-  console.log(cache);
-}, 5000);
