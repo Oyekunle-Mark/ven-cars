@@ -4,7 +4,10 @@
   "description": "a car owner api",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "migrate": "knex migrate:latest",
+    "seed": "knex seed:run",
+    "rollback": "knex migrate:rollback --all"
   },
   "repository": {
     "type": "git",
@@ -20,5 +23,10 @@
     "eslint": "^6.8.0",
     "eslint-config-airbnb-base": "^14.1.0",
     "eslint-plugin-import": "^2.20.2"
+  },
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "knex": "^0.20.13",
+    "pg": "^8.0.0"
   }
 }
