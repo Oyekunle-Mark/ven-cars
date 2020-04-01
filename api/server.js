@@ -8,7 +8,7 @@ const NodeCache = require('node-cache');
 const carRouter = require('../cars');
 
 const server = express();
-const cache = new NodeCache();
+global.cache = new NodeCache();
 
 server.use(express.json());
 server.use(cors());
@@ -34,5 +34,4 @@ server.use('*', (_, res) =>
 
 module.exports = {
   server,
-  cache,
 };

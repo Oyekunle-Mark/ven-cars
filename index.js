@@ -1,11 +1,11 @@
 /* eslint-disable no-console */
 require('dotenv').config();
-const { server, cache } = require('./api/server');
+const { server } = require('./api/server');
 const { applyFilters } = require('./utils/applyFilters');
 
 const PORT = process.env.PORT || 5000;
 
-Promise.resolve(applyFilters(cache))
+Promise.resolve(applyFilters(global.cache))
   .then(() => {
     server.listen(PORT, () => console.log(`Server started at port ${PORT}`));
   })
