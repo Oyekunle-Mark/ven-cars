@@ -1,0 +1,53 @@
+/* eslint-disable camelcase */
+module.exports = (filter, record) => {
+  const { start_year, end_year, gender, countries, colors } = filter;
+  const result = [];
+  // console.log(filter)
+
+  for (let i = 0; i < record.length; i++) {
+    const { country, car_model_year, car_color, gender: ownerGender } = record[
+      i
+    ];
+
+    if (
+      !(
+        start_year <= Number(car_model_year) &&
+        end_year >= Number(car_model_year)
+      )
+    ) {
+      continue;
+    }
+    // console.log(record[i])
+    if (gender) {
+      if (gender.toLowerCase() !== ownerGender.toLowerCase()) {
+        continue;
+      }
+    }
+
+    if (countries) {
+      const lowerCaseCountries = countries
+        .split(',')
+        .map(ctr => ctr.toLowerCase());
+      const countrySet = new Set(lowerCaseCountries);
+
+      if (!countrySet.has(country.toLowerCase())) {
+        continue;
+      }
+    }
+
+    if (colors) {
+      const lowerCaseColors = colors
+        .split(',')
+        .map(color => color.toLowerCase());
+      const colorSet = new Set(lowerCaseColors);
+
+      if (!colorSet.has(car_color.toLowerCase())) {
+        continue;
+      }
+    }
+
+    result.push(record[i]);
+  }
+
+  return result;
+};
