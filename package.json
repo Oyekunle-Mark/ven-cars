@@ -1,0 +1,19 @@
+{
+  "name": "ven-cars",
+  "version": "1.0.0",
+  "description": "a car owner api",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Oyekunle-Mark/ven-cars.git"
+  },
+  "author": "oyekunle-mark",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Oyekunle-Mark/ven-cars/issues"
+  },
+  "homepage": "https://github.com/Oyekunle-Mark/ven-cars#readme"
+}
