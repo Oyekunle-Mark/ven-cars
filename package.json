@@ -4,6 +4,8 @@
   "description": "a car owner api",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
+    "start:dev": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "migrate": "knex migrate:latest",
     "seed": "knex seed:run",
@@ -22,7 +24,8 @@
   "devDependencies": {
     "eslint": "^6.8.0",
     "eslint-config-airbnb-base": "^14.1.0",
-    "eslint-plugin-import": "^2.20.2"
+    "eslint-plugin-import": "^2.20.2",
+    "nodemon": "^2.0.2"
   },
   "dependencies": {
     "compression": "^1.7.4",
