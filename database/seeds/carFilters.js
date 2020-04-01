@@ -16,7 +16,7 @@ exports.seed = knex =>
             'Estonia',
             'Colombia',
             'China',
-          ],
+          ].join(),
           colors: [
             'Green',
             'Violet',
@@ -28,7 +28,7 @@ exports.seed = knex =>
             'Aquamarine',
             'Orange',
             'Mauv',
-          ],
+          ].join(),
         },
         {
           start_year: 1990,
@@ -43,7 +43,7 @@ exports.seed = knex =>
             'Estonia',
             'Colombia',
             'China',
-          ],
+          ].join(),
           colors: [
             'Green',
             'Violet',
@@ -55,13 +55,13 @@ exports.seed = knex =>
             'Aquamarine',
             'Orange',
             'Mauv',
-          ],
+          ].join(),
         },
         {
           start_year: 1980,
           end_year: 2002,
           gender: 'female',
-          countries: [],
+          countries: '',
           colors: [
             'Green',
             'Violet',
@@ -73,14 +73,14 @@ exports.seed = knex =>
             'Aquamarine',
             'Orange',
             'Mauv',
-          ],
+          ].join(),
         },
         {
           start_year: 1990,
           end_year: 2000,
           gender: '',
-          countries: [],
-          colors: [],
+          countries: '',
+          colors: '',
         },
         {
           start_year: 1990,
@@ -95,8 +95,8 @@ exports.seed = knex =>
             'Estonia',
             'Colombia',
             'China',
-          ],
-          colors: [],
+          ].join(),
+          colors: '',
         },
       ]),
     );
