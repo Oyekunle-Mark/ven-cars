@@ -30,7 +30,7 @@ async function readAndWriteLines() {
         email: lineArr[3],
         county: lineArr[4],
         car_model: lineArr[5],
-        car_model_year: lineArr[6],
+        car_model_year: Number(lineArr[6]),
         car_color: lineArr[7],
         gender: lineArr[8],
         job_title: lineArr[9],
