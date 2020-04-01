@@ -14,7 +14,8 @@ async function readAndWriteLines() {
   let position = 0;
 
   for await (const line of rl) {
-    if (position === 10) {
+    // writes 9000 rows only!
+    if (position === 9000) {
       break;
     }
 
