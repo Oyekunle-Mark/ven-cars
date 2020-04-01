@@ -43,7 +43,7 @@ describe('filterRecord', () => {
     },
   ];
 
-  describe('Empty field means all records', () => {
+  describe('Empty gender, countries,colors field means all records within the year range', () => {
     const filter = {
       start_year: 1990,
       end_year: 2005,
