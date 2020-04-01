@@ -1,15 +1,8 @@
-const db = require('../../database/dbConfig');
+const {
+  getCarOwnersRecord,
+  getFilters,
+} = require('../../database/service/getOwnersAndFilters');
 const filterRecord = require('./filterRecord');
-
-const getCarOwnersRecord = async () => {
-  const records = await db('car_owners');
-  return records;
-};
-
-const getFilters = async () => {
-  const filters = await db('car_filters');
-  return filters;
-};
 
 exports.applyFilters = async cache => {
   const filters = await getFilters();
