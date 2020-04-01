@@ -3,7 +3,7 @@ exports.up = knex => knex.schema.createTable('car_owners', table => {
   table.string('first_name').notNullable();
   table.string('last_name').notNullable();
   table.string('email').notNullable();
-  table.string('county').notNullable();
+  table.string('country').notNullable();
   table.string('car_model').notNullable();
   table.string('car_model_year').notNullable();
   table.string('car_color').notNullable();

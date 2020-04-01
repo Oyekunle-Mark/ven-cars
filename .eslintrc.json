@@ -2,7 +2,8 @@
   "env": {
     "browser": true,
     "commonjs": true,
-    "es6": true
+    "es6": true,
+    "jest": true
   },
   "extends": ["airbnb-base"],
   "globals": {
@@ -15,6 +16,10 @@
   "rules": {
     "arrow-parens": 0,
     "implicit-arrow-linebreak": 0,
-    "function-paren-newline": 0
+    "function-paren-newline": 0,
+    "no-plusplus": 0,
+    "no-continue": 0,
+    "object-curly-newline": 0,
+    "operator-linebreak": 0
   }
 }
