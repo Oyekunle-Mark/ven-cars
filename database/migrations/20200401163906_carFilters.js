@@ -4,8 +4,8 @@ exports.up = knex =>
     table.integer('start_year').notNullable();
     table.integer('end_year').notNullable();
     table.string('gender').notNullable();
-    table.json('countries').notNullable();
-    table.json('colors').notNullable();
+    table.jsonb('countries').notNullable();
+    table.jsonb('colors').notNullable();
   });
 
 exports.down = knex => knex.schema.dropTableIfExists('car_filters');
