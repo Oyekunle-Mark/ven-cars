@@ -4,7 +4,7 @@ const {
 } = require('../../database/service/getOwnersAndFilters');
 const filterRecord = require('./filterRecord');
 
-exports.applyFilters = async cache => {
+exports.addFiltersAndFilteredCarsToCache = async cache => {
   const filters = await getFilters();
   const record = await getCarOwnersRecord();
 
@@ -14,4 +14,7 @@ exports.applyFilters = async cache => {
 
     cache.set(filter.id, result);
   }
+
+  // add filters to the cache
+  cache.set('filters', filters);
 };
