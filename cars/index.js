@@ -1,11 +1,17 @@
 const express = require('express');
-const { getFilters } = require('../database/service/getOwnersAndFilters');
 
 const router = express.Router();
 
 router.get('/filters', async (req, res) => {
   try {
-    const filters = await getFilters();
+    const filters = global.cache.get('filters');
+
+    if (!filters) {
+      return res.status(404).json({
+        statusCode: 404,
+        error: 'There are no filters at the moment. Please add some!',
+      });
+    }
 
     return res.status(200).json({
       statusCode: 200,
@@ -33,7 +39,7 @@ router.get('/filter/:id', async (req, res) => {
 
     return res.status(200).json({
       statusCode: 200,
-      data: global.cache.get(id),
+      data: filteredResult,
     });
   } catch (err) {
     return res.status(500).json({
