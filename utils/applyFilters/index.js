@@ -14,4 +14,7 @@ exports.applyFilters = async cache => {
 
     cache.set(filter.id, result);
   }
+
+  // add filters to the cache
+  cache.set('filters', filters);
 };
